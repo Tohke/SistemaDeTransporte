@@ -16,13 +16,12 @@ import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  * Classe responsável pela persistência de objetos.
- * @author José
  * @param <T> Parâmetro de tipo: classe do objeto a ser persistido.
  */
 public class Dao <T> {
 
     private final String URI = "mongodb://localhost:27017";
-    private final String DATABASE = "SistemaDeTransporte";   // Dê o nome de sua preferência
+    private final String DATABASE = "SistemaDeTransporte";
     private final MongoClient mongoClient;
     private final MongoDatabase database;
     private final String Vehicles;  // nome da coleção
@@ -41,8 +40,8 @@ public class Dao <T> {
 
     /**
      *
-     * @param chave O nome do atributo pelo qual o objeto vai ser buscado, ex: codigo.
-     * @param valor O valor do atributo identificador do objeto a ser alterado, exemplo: 20 (vai buscar o objeto cujo código seja 20).
+     * @param chave O nome do atributo pelo qual o objeto vai ser buscado, ex: codigo. A CHAVE QUE O OBJETO RECEBE
+     * @param valor O valor do atributo identificador do objeto a ser alterado, exemplo: 20 (vai buscar o objeto cujo código seja 20). A CHAVE QUE QUER BUSCAR
      * @param novo O objeto com os novos valores que devem substituir os antigos.
      */
     public void alterar(String chave, String valor, T novo){
