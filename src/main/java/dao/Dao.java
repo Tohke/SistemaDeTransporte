@@ -1,18 +1,14 @@
 package dao;
 
-import com.mongodb.MongoClientSettings;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.result.DeleteResult;
 import java.util.ArrayList;
 import java.util.List;
+
+import modelo.Vehicle;
 import org.bson.Document;
-import org.bson.codecs.configuration.CodecRegistries;
-import org.bson.codecs.configuration.CodecRegistry;
-import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  * Classe responsável pela persistência de objetos.
@@ -22,74 +18,82 @@ public class Dao <T> {
 
     private final String URI = "mongodb://localhost:27017";
     private final String DATABASE = "SistemaDeTransporte";
-    private final MongoClient mongoClient;
-    private final MongoDatabase database;
-    private final String Vehicles;  // nome da coleção
-    //private final String Users;
     private final MongoCollection<T> collection;
 
     public Dao(Class<T> classe){
-        this.Vehicles = classe.getName();
-        mongoClient = MongoClients.create(URI);
-        CodecRegistry pojoCodecRegistry = CodecRegistries.fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
-                        CodecRegistries.
-                                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
-        database = mongoClient.getDatabase(DATABASE).withCodecRegistry(pojoCodecRegistry);
-        collection = database.getCollection(Vehicles, classe);
+        MongoDatabase database = MongoConn.mongoDB();
+        this.collection = database.getCollection(classe.getSimpleName(), classe);
     }
 
+// Inserir Universal
+    //Fazer gerar o ID e fazer o mesmo incrementar a cada cadastro de operador ou ver de utilizar o que a database utiliza
+    public void insert(T object){
+        if(object != null){
+            collection.insertOne(object);
+        }
+    }
     /**
      *
-     * @param chave O nome do atributo pelo qual o objeto vai ser buscado, ex: codigo. A CHAVE QUE O OBJETO RECEBE
-     * @param valor O valor do atributo identificador do objeto a ser alterado, exemplo: 20 (vai buscar o objeto cujo código seja 20). A CHAVE QUE QUER BUSCAR
-     * @param novo O objeto com os novos valores que devem substituir os antigos.
+     * @param key O nome do atributo pelo qual o objeto vai ser buscado, ex: codigo. A CHAVE QUE O OBJETO RECEBE
+     * @param value O valor do atributo identificador do objeto a ser alterado, exemplo: 20 (vai buscar o objeto cujo código seja 20). A CHAVE QUE QUER BUSCAR
+     * @param newData O objeto com os novos valores que devem substituir os antigos.
      */
-    public void alterar(String chave, String valor, T novo){
-        collection.replaceOne(new Document(chave, valor), novo);
+
+
+    public void change(String key, Object value, T newData) {
+        collection.replaceOne(new Document(key, value), newData);
     }
 
 
     /**
      * Apaga um objeto no banco.
-     * @param chave O nome do atributo pelo qual o objeto vai ser buscado, ex: codigo.
-     * @param valor O valor do atributo identificador do objeto a ser alterado, exemplo: 20 (vai excluir o objeto cujo código seja 20).
+     * @param key O nome do atributo pelo qual o objeto vai ser buscado, ex: codigo.
+     * @param value O value do atributo identificador do objeto a ser alterado, exemplo: 20 (vai excluir o objeto cujo código seja 20).
      * @return True se um objeto foi excluído ou false caso contrário.
      */
-    public boolean excluir(String chave, String valor){
-        Document filter = new Document(chave, valor);
-        DeleteResult result = collection.deleteOne(filter);
+
+
+    public boolean delete(String key, Object value){
+        DeleteResult result = collection.deleteOne(new Document(key, value));
         return result.getDeletedCount() > 0;
     }
 
     /**
      * Retorna o objeto cuja chave for igual ao valor passado.
-     * @param chave o campo pelo qual o objeto vai ser buscado
-     * @param valor o valor da chave
+     * @param key o campo pelo qual o objeto vai ser buscado
+     * @param value o valor da chave
      * @return O objeto correspondente à chave ou null caso não exista.
      */
-    public T buscarPorChave(String chave, String valor){
-        T retorno = collection.find(new Document(chave, valor)).first();
-        return retorno;
+    public T buscarPorChave(String key, Object value) {
+        return collection.find(new Document(key, value)).first();
     }
 
-    public void inserir(T objeto){
-        collection.insertOne(objeto);
-    }
 
+
+    public void insertData(Vehicle newData) {
+        if ( newData == null){  // não existe
+            //collection.insertOne(newVehicle);
+            System.out.println("nqbrenbqneb0");
+        }
+        else {
+            System.out.println("Já existe");
+        }
+    }
 
     /**
      * Retorna todos os objetos de uma coleção do tipo T.
-     * @return
+     *
      */
-    public List<T> listarTodos(){
-        ArrayList<T> todos = new ArrayList();
+    public List<T> listAll() {
+        ArrayList<T> allData = new ArrayList<>();
         MongoCursor<T> cursor = collection.find().iterator();
-        while(cursor.hasNext()){
-            T elemento = (T)cursor.next();
-            todos.add(elemento);
+        try {
+            while (cursor.hasNext()) {
+                allData.add(cursor.next());
+            }
+        } finally {
+            cursor.close();
         }
-        return todos;
+        return allData;
     }
-
-
 }

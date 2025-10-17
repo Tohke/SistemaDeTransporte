@@ -1,5 +1,6 @@
 package com.st.sistemadetransporte;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,7 +31,7 @@ public class App extends Application {
     }
 
     /**
-     * Método estático para trocar a cena (tela) da janela principal.
+     *  Método estático para trocar a cena (tela) da janela principal.
      * Pode ser chamado de qualquer controller.
      * @param fxmlFile O nome do arquivo FXML da nova tela (ex: "TelaRetiradas.fxml").
      */
@@ -52,6 +53,8 @@ public class App extends Application {
                 mainStage.setTitle("Tela de Retiradas");
             } else if(fxmlFile.equals("TelaAdicionarVeiculo.fxml")){
                 mainStage.setTitle("Tela de Adicionar Veiculos");
+            } else if(fxmlFile.equals("TelaCadastrarUsuario.fxml")){
+                mainStage.setTitle("Tela de Cadastro de Usuário");
             }
 
         } catch (IOException e) {
@@ -62,5 +65,8 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch(args);
+//        DaoTest dt = new DaoTest();
+//        dt.testInserir();
+//        dt.testListar();
     }
 }

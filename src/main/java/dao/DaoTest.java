@@ -1,36 +1,36 @@
 
-package dao;
+//package dao;
 
+
+import modelo.Vehicle;
+import java.util.List;
 
 /**
  *
  * @author Usuário
  */
-public class DaoTest {
+//public class DaoTest {
+//    public DaoTest() {}
+//
 
-    public DaoTest() {
-    }
-
-//    @org.junit.jupiter.api.Test
 //    public void testInserir() {
-//        Veiculo v = new Veiculo("DER9865", "Ford", "Mustang");
-//        Dao<Veiculo> dao = new Dao(Veiculo.class); 
-//        Veiculo aux = dao.buscarPorChave("placa", "DER9865");
+//        Vehicle v = new Vehicle("TDFA9865", "Ford", "Mustang");
+//        Dao<Vehicle> dao = new Dao<>(Vehicle.class);
+//        Vehicle aux = dao.buscarPorChave("placa", "TDFA9865");
 //        if ( aux == null){  // não existe
-//            dao.inserir(v);  
+//            dao.inserir(v);
 //        }
 //        else{
 //            System.out.println("Já existe");
-//        }      
+//        }
 //    }
 
-//    @org.junit.jupiter.api.Test
 //    public void testListar(){
-//        List<Veiculo> lista;
-//        Dao<Veiculo> dao = new Dao(Veiculo.class);
-//        lista = dao.listarTodos(); 
-//        for (Veiculo v : lista){
+//        List<Vehicle> lista;
+//        Dao<Vehicle> dao = new Dao<>(Vehicle.class);
+//        lista = dao.listarTodos();
+//        for (Vehicle v : lista){
 //            System.out.println(v.getPlaca());
 //        }
 //    }
-}
+//}

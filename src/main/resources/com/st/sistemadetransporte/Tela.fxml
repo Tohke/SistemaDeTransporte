@@ -32,11 +32,17 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.st.sistemadetransporte.HelloController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.HelloControllerMain">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -84,14 +90,14 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <Button layoutX="140.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#selectedWithdrawals" text="Retiradas">
+            <Button layoutX="156.0" layoutY="175.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="96.0" text="Login">
                <font>
-                  <Font size="20.0" />
+                  <Font size="17.0" />
                </font>
             </Button>
-            <Button layoutX="150.0" layoutY="198.0" mnemonicParsing="false" onMouseClicked="#selectedWithdrawals" text="Retiradas">
+            <Button layoutX="401.0" layoutY="175.0" mnemonicParsing="false" onAction="#showRegistrationOptions" prefHeight="55.0" prefWidth="96.0" text="Cadastrar">
                <font>
-                  <Font size="20.0" />
+                  <Font size="17.0" />
                </font>
             </Button>
          </children>

@@ -4,19 +4,19 @@ package modelo;
  *
  * @author Jose
  */
-public class Veiculo {
+public class Vehicle {
 
     private String placa;
     private String marca;
     private String modelo;
 
-    public Veiculo() {
+    public Vehicle() {
         this.placa = "";
         this.marca = "";
         this.modelo = "";
     }
 
-    public Veiculo(String placa, String marca, String modelo) {
+    public Vehicle(String placa, String marca, String modelo) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
