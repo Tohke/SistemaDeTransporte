@@ -33,7 +33,7 @@ public class App extends Application {
     /**
      *  Método estático para trocar a cena (tela) da janela principal.
      * Pode ser chamado de qualquer controller.
-     * @param fxmlFile O nome do arquivo FXML da nova tela (ex: "TelaRetiradas.fxml").
+     * @param fxmlFile O nome do arquivo FXML da nova tela (ex: "TelaGerenciarVeiculos.fxml").
      */
 
     //Método feito por IA
@@ -49,7 +49,7 @@ public class App extends Application {
             // Opcional: Atualiza o título da janela com base na tela carregada.
             if (fxmlFile.equals("Tela.fxml")) {
                 mainStage.setTitle("Tela Principal");
-            } else if (fxmlFile.equals("TelaRetiradas.fxml")) {
+            } else if (fxmlFile.equals("TelaGerenciarVeiculos.fxml")) {
                 mainStage.setTitle("Tela de Retiradas");
             } else if(fxmlFile.equals("TelaAdicionarVeiculo.fxml")){
                 mainStage.setTitle("Tela de Adicionar Veiculos");
