@@ -10,6 +10,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * Falta arrumar o cadastro de operador
+ * Criar uma tela inicial para escolher as operações
+ *
+ *
+ *
+ * */
 
 public class App extends Application {
 
@@ -49,12 +56,17 @@ public class App extends Application {
             // Opcional: Atualiza o título da janela com base na tela carregada.
             if (fxmlFile.equals("Tela.fxml")) {
                 mainStage.setTitle("Tela Principal");
-            } else if (fxmlFile.equals("TelaGerenciarVeiculos.fxml")) {
+            } else if (fxmlFile.equals("TelaRetiradas.fxml")) {
                 mainStage.setTitle("Tela de Retiradas");
-            } else if(fxmlFile.equals("TelaAdicionarVeiculo.fxml")){
+            } else if (fxmlFile.equals("TelaAdicionarVeiculo.fxml")) {
                 mainStage.setTitle("Tela de Adicionar Veiculos");
-            } else if(fxmlFile.equals("TelaCadastrarUsuario.fxml")){
+            } else if (fxmlFile.equals("TelaCadastrarUsuario.fxml")) {
                 mainStage.setTitle("Tela de Cadastro de Usuário");
+            }
+            else if (fxmlFile.equals("TelaLogin.fxml")) {
+                mainStage.setTitle("Login do Operador");
+            } else if (fxmlFile.equals("TelaGerenciarVeiculos.fxml")) {
+                mainStage.setTitle("Gerenciamento da Frota");
             }
 
         } catch (IOException e) {

@@ -5,7 +5,7 @@ import dao.Dao;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import modelo.User;
-import modelo.Vehicle;
+import javafx.scene.control.Alert;
 
 public class HelloControllerSignUpUser {
     @FXML private TextField textFieldUserName;
@@ -20,7 +20,8 @@ public class HelloControllerSignUpUser {
         String sector = textFieldUserSector.getText();
 
         if(cnh.isEmpty() || name.isEmpty() || address.isEmpty() || sector.isEmpty()){
-            System.out.println("Erro: Campos vazios!");
+            showAlert("Erro:","Todos os campos são obrigatórios!");
+            return;
         }
 
         //User newUser = new User(name, address, cnh, sector);
@@ -29,16 +30,30 @@ public class HelloControllerSignUpUser {
         if(dao.buscarPorChave("cnh", cnh) == null){
             User newUser = new User(name, address, cnh, sector);
             dao.insert(newUser);
-            System.out.println("Usuario salvo com sucesso!");
+            showAlert("Sucesso", "Motorista " + name + " salvo com sucesso!");
+            clearFields();
         }
         else{
-            System.out.println("Erro: usuário já existe!");
-
+            showAlert("Erro:","Já existe um motorista cadastrado com esta CNH.");
         }
     }
 
-    @FXML protected void backMainPage(){
-        App.changeScene("Tela.fxml");
+    @FXML protected void backMainPage(){App.changeScene("Tela.fxml");}
+
+    private void clearFields() {
+        textFieldUserName.clear();
+        textFieldUserAddress.clear();
+        textFieldUserCNH.clear();
+        textFieldUserSector.clear();
+    }
+
+    /** Método por IA */
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 }

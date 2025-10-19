@@ -3,13 +3,13 @@ package Controllers;
 import com.st.sistemadetransporte.App;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
 import modelo.Vehicle;
 import dao.Dao;
 
+
 public class HelloControllerRegisterVehicle {
 
-//    @FXML private ChoiceBox choiceBox;
-//    @FXML private ChoiceBox choiceBox2;
 
     @FXML private TextField textFieldMarca;
     @FXML private TextField textFieldModelo;
@@ -20,24 +20,41 @@ public class HelloControllerRegisterVehicle {
         String modelo = textFieldModelo.getText();
         String placa = textFieldPlaca.getText();
 
-        if(placa.isEmpty() || marca.isEmpty()){
-            System.out.println("Erro: Placa e Marca são obrigatórios.");
+        if (placa.isEmpty() || marca.isEmpty()) {
+            showAlert("Erro de Validação", "Placa e Marca são obrigatórios.");
             return;
         }
 
         Dao<Vehicle> dao = new Dao<>(Vehicle.class);
 
-        if(dao.buscarPorChave("placa", placa) == null){
+        if (dao.buscarPorChave("placa", placa) == null) {
             Vehicle newVehicle = new Vehicle(placa, marca, modelo);
             dao.insert(newVehicle);
-            System.out.println("Veículo salvo com sucesso!");
+
+            showAlert("Sucesso", "Veículo salvo com sucesso!");
+            clearFields();
         }
-        else{
-            System.out.println("Erro: Veículo com a placa " + placa + " já existe.");
+        else {
+            showAlert("Erro de Cadastro", "Já existe um veículo com esta placa.");
         }
     }
 
     @FXML protected void backMainPage(){
         App.changeScene("Tela.fxml");
     }
+
+    private void clearFields() {
+        textFieldMarca.clear();
+        textFieldModelo.clear();
+        textFieldPlaca.clear();
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 }

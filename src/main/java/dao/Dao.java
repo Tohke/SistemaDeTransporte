@@ -10,6 +10,7 @@ import java.util.List;
 import modelo.Vehicle;
 import org.bson.Document;
 
+
 /**
  * Classe responsável pela persistência de objetos.
  * @param <T> Parâmetro de tipo: classe do objeto a ser persistido.
@@ -69,7 +70,6 @@ public class Dao <T> {
     }
 
 
-
     public void insertData(Vehicle newData) {
         if ( newData == null){  // não existe
             //collection.insertOne(newVehicle);
@@ -79,7 +79,25 @@ public class Dao <T> {
             System.out.println("Já existe");
         }
     }
-
+    /** ==================================================================================================
+     * Lógica por IA
+     * */
+    public T searchVehicles(Document filter){
+        return collection.find(filter).first();
+    }
+    public List<T> listVehiles(Document filter) {
+        ArrayList<T> allData = new ArrayList<>();
+        MongoCursor<T> cursor = collection.find(filter).iterator();
+        try {
+            while (cursor.hasNext()) {
+                allData.add(cursor.next());
+            }
+        } finally {
+            cursor.close();
+        }
+        return allData;
+    }
+    /** ** ==================================================================================================*/
     /**
      * Retorna todos os objetos de uma coleção do tipo T.
      *

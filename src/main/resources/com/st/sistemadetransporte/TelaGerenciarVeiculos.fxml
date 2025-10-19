@@ -36,7 +36,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.HelloControllerRegisterVehicle">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="Controllers.HelloControllerVehiclesManegement" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -79,14 +79,22 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" layoutX="203.0" layoutY="38.0" style="&#10;" text="Registrar Veículos" textAlignment="CENTER" wrapText="false">
+        <Label alignment="CENTER" layoutX="236.0" layoutY="48.0" style="&#10;" text="Gerenciar Frota" textAlignment="CENTER" wrapText="false">
           <font>
             <Font size="25.0" />
           </font>
         </Label>
-        <ChoiceBox fx:id="choiceBox" layoutX="259.0" layoutY="104.0" prefWidth="150.0" />
-        <ChoiceBox fx:id="choiceBox2" layoutX="259.0" layoutY="169.0" prefWidth="150.0" />
-        <Button layoutX="24.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#backMainPage" text="Voltar" />
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backMainPage" onMouseClicked="#backMainPage" text="Voltar" />
+            <Button layoutX="190.0" layoutY="170.0" mnemonicParsing="false" onAction="#goOperationsPage" prefHeight="36.0" prefWidth="102.0" text="Operacões">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="360.0" layoutY="171.0" mnemonicParsing="false" onAction="#goHistory" text="Registros">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
       </children>
     </AnchorPane>
   </children>

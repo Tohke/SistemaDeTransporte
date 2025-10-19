@@ -11,7 +11,7 @@ import java.util.Optional;
 public class HelloControllerMain {
 
 
-    //Pop-up de seleção de usuario
+
     @FXML
     protected void showRegistrationOptions() {
 
@@ -42,6 +42,27 @@ public class HelloControllerMain {
 
     @FXML protected void goCadastrarUsuario(){
         App.changeScene("TelaCadastrarUsuario.fxml");
+    }
+    @FXML protected void goLoginPage() {
+        List<String> choices = new ArrayList<>();
+        choices.add("Motorista");
+        choices.add("Operador (Admin)");
+
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("Motorista", choices);
+        dialog.setTitle("Opções de Login");
+        dialog.setHeaderText("Por favor, escolha seu tipo de acesso.");
+        dialog.setContentText("Entrar como:");
+
+        Optional<String> result = dialog.showAndWait();
+
+        result.ifPresent(choice -> {
+            if (choice.equals("Motorista")) {
+                App.changeScene("TelaLoginMotorista.fxml");
+            }
+            else if (choice.equals("Operador (Admin)")) {
+                App.changeScene("TelaLogin.fxml");
+            }
+        });
     }
 
 

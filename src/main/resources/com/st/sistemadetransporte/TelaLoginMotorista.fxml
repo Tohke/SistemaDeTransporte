@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.HelloControllerDriverLogin">
+    <children>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+            <children>
+                <Label layoutX="198.0" layoutY="62.0" text="Login do Motorista">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="textFieldCNH" layoutX="243.0" layoutY="168.0" prefHeight="25.0" prefWidth="215.0" promptText="Digite sua CNH" />
+                <Label layoutX="180.0" layoutY="168.0" text="CNH:">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Button layoutX="394.0" layoutY="266.0" mnemonicParsing="false" onAction="#doLoginMotorista" prefHeight="38.0" prefWidth="80.0" text="Entrar">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Button layoutX="180.0" layoutY="266.0" mnemonicParsing="false" onAction="#backMainPage" prefHeight="38.0" prefWidth="80.0" text="Voltar">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>
