@@ -8,7 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import modelo.Operators;
 
-public class HelloControllerLogin {
+public class HelloControllerLoginOperator {
 
     @FXML private TextField textFieldLogin;
     @FXML private PasswordField passwordFieldSenha;
@@ -37,7 +37,7 @@ public class HelloControllerLogin {
         if (operator != null && operator.getPassword().equals(senha)) {
             // Sucesso! Redireciona para a tela principal de gerenciamento
             System.out.println("Login aprovado para: " + operator.getOperatorName());
-            App.changeScene("TelaGerenciarVeiculos.fxml");
+            App.changeScene(".fxml");
         } else {
             // Falha
             showAlert("Login Falhou", "Login ou senha incorretos. Tente novamente.");

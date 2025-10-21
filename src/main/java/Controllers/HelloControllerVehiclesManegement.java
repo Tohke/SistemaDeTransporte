@@ -9,7 +9,7 @@ public class HelloControllerVehiclesManegement {
         App.changeScene("Tela.fxml");
     }
     @FXML protected void goOperationsPage(){
-        App.changeScene(".fxml");
+        App.changeScene("TelaOperacoesDeVeiculos.fxml");
     }
     @FXML protected void goHistory(){
         App.changeScene(".fxml");

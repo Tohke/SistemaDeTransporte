@@ -22,21 +22,16 @@ public class HelloControllerDriverLogin {
             return;
         }
 
-        // Busca o motorista pela CNH
         User motorista = dao.buscarPorChave("cnh", cnh);
 
         if (motorista != null) {
-            // Sucesso!
             System.out.println("Login aprovado para motorista: " + motorista.getUserName());
 
-            // NOTA: O PDF não especifica uma tela para o motorista.
-            // Por enquanto, vamos apenas redirecionar para a tela principal (Tela.fxml).
-            // Se você criar um "Dashboard do Motorista", mude a linha abaixo.
+
             showAlert("Sucesso", "Bem-vindo, " + motorista.getUserName() + "!");
-            App.changeScene("Tela.fxml");
+            App.changeScene("TelaGerenciarVeiculos.fxml");
 
         } else {
-            // Falha
             showAlert("Login Falhou", "CNH não encontrada em nosso cadastro.");
         }
     }

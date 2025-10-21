@@ -27,10 +27,7 @@ public class HelloControllerVehiclesOperations {
 
     private Set<String> unavailablePlates; // Para saber quais veículos estão em uso
 
-    /**
-     * Método especial do JavaFX que é chamado automaticamente quando a tela é carregada.
-     * Ideal para inicializar componentes, como o ChoiceBox.
-     */
+
     @FXML
     public void initialize() {
         // Configura como o veículo será exibido no ChoiceBox
@@ -78,10 +75,7 @@ public class HelloControllerVehiclesOperations {
         vehiclesDisplay.setItems(FXCollections.observableArrayList(allVehicles));
     }
 
-    /**
-     * Ação do botão "Retirar".
-     * Valida os campos e, se tudo estiver OK, registra uma nova retirada.
-     */
+
     @FXML
     protected void takeVehicle() {
         Vehicle selectedVehicle = vehiclesDisplay.getValue();
@@ -123,10 +117,7 @@ public class HelloControllerVehiclesOperations {
         }
     }
 
-    /**
-     * Ação do botão "Retornar".
-     * Valida e, se OK, registra a data de devolução no registro de uso.
-     */
+
     @FXML
     protected void returnVehicle() {
         Vehicle selectedVehicle = vehiclesDisplay.getValue();
@@ -148,21 +139,16 @@ public class HelloControllerVehiclesOperations {
             VehicleRent registroAtivo = registroDao.searchVehicles(filter);
 
             if (registroAtivo == null) {
-                // Segurança extra, embora o 'unavailablePlates' já deva ter pego isso
                 showAlert("Erro de Inconsistência", "Não foi encontrado um registro de retirada ativo para este veículo.");
                 return;
             }
 
-            // Atualiza o registro com a data e hora da devolução
             registroAtivo.setDataDevolucao(LocalDateTime.now());
 
-            // Salva a alteração no banco usando o ID do registro
-            // O método change() do DAO substitui o documento inteiro
             registroDao.change("_id", registroAtivo.getId(), registroAtivo);
 
             showAlert("Sucesso", "Veículo " + selectedVehicle.getPlaca() + " foi devolvido.");
 
-            // Atualiza a lista para "Disponível"
             populateVehicleChoiceBox();
 
         } catch (Exception e) {

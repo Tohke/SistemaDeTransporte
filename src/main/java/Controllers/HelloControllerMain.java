@@ -35,7 +35,7 @@ public class HelloControllerMain {
                 App.changeScene("TelaCadastroMotorista.fxml");
             } else if (choice.equals("Operador (Admin)")) {
                 System.out.println("Usuário escolheu Operador. Redirecionando...");
-                App.changeScene("TelaCadastroOperador.fxml");
+                App.changeScene("TelaCadastrarOperador.fxml");
             }
         });
     }
@@ -60,7 +60,7 @@ public class HelloControllerMain {
                 App.changeScene("TelaLoginMotorista.fxml");
             }
             else if (choice.equals("Operador (Admin)")) {
-                App.changeScene("TelaLogin.fxml");
+                App.changeScene("TelaLoginOperador.fxml");
             }
         });
     }

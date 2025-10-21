@@ -12,10 +12,20 @@ import java.util.Objects;
 
 /**
  * Falta arrumar o cadastro de operador
- * Criar uma tela inicial para escolher as operações
+ * Criar uma tela inicial para escolher as operações do operador
+ * erro no login de operador -> falta a tela geral do operador
+ *
+ * Fazer o registro
+ * mensagem de confirmar cadastro de operador
  *
  *
+ * Motorista:
+ * CNH 1234-56
  *
+ * Operador:
+ * Nome: Joao F
+ * Login: joao_f
+ * senha: jfps05
  * */
 
 public class App extends Application {
@@ -63,7 +73,7 @@ public class App extends Application {
             } else if (fxmlFile.equals("TelaCadastrarUsuario.fxml")) {
                 mainStage.setTitle("Tela de Cadastro de Usuário");
             }
-            else if (fxmlFile.equals("TelaLogin.fxml")) {
+            else if (fxmlFile.equals("TelaLoginOperador.fxml")) {
                 mainStage.setTitle("Login do Operador");
             } else if (fxmlFile.equals("TelaGerenciarVeiculos.fxml")) {
                 mainStage.setTitle("Gerenciamento da Frota");
