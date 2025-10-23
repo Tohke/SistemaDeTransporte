@@ -37,7 +37,7 @@ public class HelloControllerLoginOperator {
         if (operator != null && operator.getPassword().equals(senha)) {
             // Sucesso! Redireciona para a tela principal de gerenciamento
             System.out.println("Login aprovado para: " + operator.getOperatorName());
-            App.changeScene(".fxml");
+            App.changeScene("TelaPrincipalOperador.fxml");
         } else {
             // Falha
             showAlert("Login Falhou", "Login ou senha incorretos. Tente novamente.");

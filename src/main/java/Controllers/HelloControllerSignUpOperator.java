@@ -24,7 +24,7 @@ public class HelloControllerSignUpOperator {
 
 
         if(login.isEmpty() || password.isEmpty()){
-            System.out.println("Erro: Login e Senha são obrigatórios.");
+            showAlert("Erro:", "Nome, Login e Senha são obrigatórios.");
             return;
         }
 
@@ -33,11 +33,11 @@ public class HelloControllerSignUpOperator {
         if (dao.buscarPorChave("login", login) == null) {
             Operators newOperators = new Operators(0, name, login, password); // Passa ID 0, mas da para usar o object ID
             dao.insert(newOperators);
-            System.out.println("Operador salvo com sucesso!");
+            showAlert("Sucesso!", "Operador salvo com sucesso!");
+            clearFields();
         }
         else{
-            System.out.println("Erro: Operador incorreto!");
-        }
+            showAlert("Erro:", "Já existe um operador com este login.");        }
     }
 
     @FXML protected void backMainPage(){App.changeScene("Tela.fxml");}

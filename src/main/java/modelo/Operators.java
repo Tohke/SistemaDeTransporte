@@ -7,6 +7,9 @@ public class Operators {
     private String login;
     private String password;
 
+
+    public Operators(){}
+
     public Operators(int id, String operatorName, String login, String password) {
         this.id = id;
         this.operatorName = operatorName;

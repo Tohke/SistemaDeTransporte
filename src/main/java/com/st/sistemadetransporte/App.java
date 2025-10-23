@@ -11,21 +11,29 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * Falta arrumar o cadastro de operador
- * Criar uma tela inicial para escolher as operações do operador
- * erro no login de operador -> falta a tela geral do operador
+ * Falta arrumar o cadastro de operador FEITO
+ * Criar uma tela inicial para escolher as operações do operador FEITO
+ * erro no login de operador -> falta a tela geral do operador FEITO
  *
  * Fazer o registro
  * mensagem de confirmar cadastro de operador
  *
+ * erro de segurança: transformar o cadastro de operador apenas possível na tela principal de um operador já logado
+ * erro de logica: voltar sempre leva para a tela de login/cadastro
  *
  * Motorista:
  * CNH 1234-56
  *
  * Operador:
- * Nome: Joao F
+ * Nome: Joao Francisco
  * Login: joao_f
  * senha: jfps05
+ *
+ * Carro:
+ * Marca: Hyundai
+ * Modelo: Creta
+ * Placa: ABCD-01
+ *
  * */
 
 public class App extends Application {
@@ -47,11 +55,7 @@ public class App extends Application {
         mainStage.show();
     }
 
-    /**
-     *  Método estático para trocar a cena (tela) da janela principal.
-     * Pode ser chamado de qualquer controller.
-     * @param fxmlFile O nome do arquivo FXML da nova tela (ex: "TelaGerenciarVeiculos.fxml").
-     */
+
 
     //Método feito por IA
     public static void changeScene(String fxmlFile) {
@@ -77,6 +81,9 @@ public class App extends Application {
                 mainStage.setTitle("Login do Operador");
             } else if (fxmlFile.equals("TelaGerenciarVeiculos.fxml")) {
                 mainStage.setTitle("Gerenciamento da Frota");
+            }
+            else if (fxmlFile.equals("TelaHistorico.fxml")) {
+                mainStage.setTitle("Histórico de Uso de Veículos");
             }
 
         } catch (IOException e) {
