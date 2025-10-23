@@ -1,8 +1,11 @@
 package modelo;
 
+import org.bson.types.ObjectId;
+import java.util.Objects;
+
 public class Operators {
 
-    private int id;
+    private ObjectId id;
     private String operatorName;
     private String login;
     private String password;
@@ -10,18 +13,17 @@ public class Operators {
 
     public Operators(){}
 
-    public Operators(int id, String operatorName, String login, String password) {
-        this.id = id;
+    public Operators(String operatorName, String login, String password) {
         this.operatorName = operatorName;
         this.login = login;
         this.password = password;
     }
 
-    public int getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 

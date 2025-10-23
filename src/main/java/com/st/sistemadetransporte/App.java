@@ -14,26 +14,26 @@ import java.util.Objects;
  * Falta arrumar o cadastro de operador FEITO
  * Criar uma tela inicial para escolher as operações do operador FEITO
  * erro no login de operador -> falta a tela geral do operador FEITO
- *
+ *<p>
  * Fazer o registro
  * mensagem de confirmar cadastro de operador
- *
+ *<p>
  * erro de segurança: transformar o cadastro de operador apenas possível na tela principal de um operador já logado
  * erro de logica: voltar sempre leva para a tela de login/cadastro
- *
+ *<p>
  * Motorista:
  * CNH 1234-56
- *
+ *<p>
  * Operador:
  * Nome: Joao Francisco
  * Login: joao_f
  * senha: jfps05
- *
+ *<p>
  * Carro:
  * Marca: Hyundai
  * Modelo: Creta
  * Placa: ABCD-01
- *
+ * <p>
  * */
 
 public class App extends Application {
@@ -68,22 +68,28 @@ public class App extends Application {
             mainStage.setScene(newScene);
 
             // Opcional: Atualiza o título da janela com base na tela carregada.
-            if (fxmlFile.equals("Tela.fxml")) {
-                mainStage.setTitle("Tela Principal");
-            } else if (fxmlFile.equals("TelaRetiradas.fxml")) {
-                mainStage.setTitle("Tela de Retiradas");
-            } else if (fxmlFile.equals("TelaAdicionarVeiculo.fxml")) {
-                mainStage.setTitle("Tela de Adicionar Veiculos");
-            } else if (fxmlFile.equals("TelaCadastrarUsuario.fxml")) {
-                mainStage.setTitle("Tela de Cadastro de Usuário");
-            }
-            else if (fxmlFile.equals("TelaLoginOperador.fxml")) {
-                mainStage.setTitle("Login do Operador");
-            } else if (fxmlFile.equals("TelaGerenciarVeiculos.fxml")) {
-                mainStage.setTitle("Gerenciamento da Frota");
-            }
-            else if (fxmlFile.equals("TelaHistorico.fxml")) {
-                mainStage.setTitle("Histórico de Uso de Veículos");
+            switch (fxmlFile) {
+                case "Tela.fxml":
+                    mainStage.setTitle("Tela Principal");
+                    break;
+                case "TelaRetiradas.fxml":
+                    mainStage.setTitle("Tela de Retiradas");
+                    break;
+                case "TelaAdicionarVeiculo.fxml":
+                    mainStage.setTitle("Tela de Adicionar Veiculos");
+                    break;
+                case "TelaCadastrarUsuario.fxml":
+                    mainStage.setTitle("Tela de Cadastro de Usuário");
+                    break;
+                case "TelaLoginOperador.fxml":
+                    mainStage.setTitle("Login do Operador");
+                    break;
+                case "TelaGerenciarVeiculos.fxml":
+                    mainStage.setTitle("Gerenciamento da Frota");
+                    break;
+                case "TelaHistorico.fxml":
+                    mainStage.setTitle("Histórico de Uso de Veículos");
+                    break;
             }
 
         } catch (IOException e) {

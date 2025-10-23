@@ -14,5 +14,4 @@ public class HelloControllerVehiclesManegement {
     @FXML protected void goHistory(){
         App.changeScene(".fxml");
     }
-
 }

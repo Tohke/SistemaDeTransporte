@@ -1,9 +1,7 @@
 package modelo;
 
 public class User {
-    //private String userLogin;
     private String userName;
-    //private String userPassword;
     private String address;
     private String cnh;
     private String sector;

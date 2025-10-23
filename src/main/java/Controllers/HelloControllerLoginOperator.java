@@ -15,31 +15,23 @@ public class HelloControllerLoginOperator {
 
     private Dao<Operators> dao = new Dao<>(Operators.class);
 
-    /**
-     * Ação do botão "Entrar".
-     * Valida o login e a senha do operador no banco de dados.
-     */
+
     @FXML
     private void doLogin() {
         String login = textFieldLogin.getText();
         String senha = passwordFieldSenha.getText();
 
-        // 1. Validação de campos vazios
         if (login.isEmpty() || senha.isEmpty()) {
             showAlert("Erro de Validação", "Login e Senha não podem estar vazios.");
             return;
         }
 
-        // 2. Busca o operador pelo login no banco
         Operators operator = dao.buscarPorChave("login", login);
 
-        // 3. Valida se o operador existe e se a senha está correta
         if (operator != null && operator.getPassword().equals(senha)) {
-            // Sucesso! Redireciona para a tela principal de gerenciamento
             System.out.println("Login aprovado para: " + operator.getOperatorName());
             App.changeScene("TelaPrincipalOperador.fxml");
         } else {
-            // Falha
             showAlert("Login Falhou", "Login ou senha incorretos. Tente novamente.");
         }
     }
@@ -47,9 +39,6 @@ public class HelloControllerLoginOperator {
 
     @FXML private void backMainPage() {App.changeScene("Tela.fxml");}
 
-    /**
-     * Método auxiliar para exibir alertas.
-     */
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);

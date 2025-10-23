@@ -5,7 +5,7 @@ import dao.Dao;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import modelo.Operators;
-import javafx.scene.control.Alert; // Adicione este import
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 
 public class HelloControllerSignUpOperator {
@@ -23,7 +23,7 @@ public class HelloControllerSignUpOperator {
         String password = textFieldOperatorPassword.getText();
 
 
-        if(login.isEmpty() || password.isEmpty()){
+        if(login.isEmpty() || password.isEmpty() || name.isEmpty()){
             showAlert("Erro:", "Nome, Login e Senha são obrigatórios.");
             return;
         }
@@ -31,7 +31,7 @@ public class HelloControllerSignUpOperator {
         Dao<Operators> dao = new Dao<>(Operators.class);
 
         if (dao.buscarPorChave("login", login) == null) {
-            Operators newOperators = new Operators(0, name, login, password); // Passa ID 0, mas da para usar o object ID
+            Operators newOperators = new Operators(name, login, password);
             dao.insert(newOperators);
             showAlert("Sucesso!", "Operador salvo com sucesso!");
             clearFields();

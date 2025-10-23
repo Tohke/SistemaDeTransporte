@@ -36,8 +36,7 @@ public class HelloControllerDriverLogin {
         }
     }
 
-    @FXML
-    private void backMainPage() {
+    @FXML private void backMainPage() {
         App.changeScene("Tela.fxml");
     }
 
