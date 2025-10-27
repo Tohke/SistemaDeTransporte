@@ -20,4 +20,6 @@ module com.modelo {
     opens Controllers to javafx.fxml;
     exports modelo;
     opens modelo to javafx.fxml;
+    exports Controllers.OperatorsVersion;
+    opens Controllers.OperatorsVersion to javafx.fxml;
 }
