@@ -1,14 +1,14 @@
-package Controllers.OperatorsVersion;
+package controllers;
 
 import com.st.sistemadetransporte.App;
-import dao.Dao;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
 import modelo.Vehicle;
+import dao.Dao;
 
 
-public class HelloControllerRegisterVehicle_OP {
+public class ControllerRegisterVehicle {
 
 
     @FXML private TextField textFieldMarca;
@@ -39,7 +39,9 @@ public class HelloControllerRegisterVehicle_OP {
         }
     }
 
-    @FXML private void backOperatorsPage() {App.changeScene("TelaPrincipalOperador.fxml");}
+    @FXML protected void backMainPage(){
+        App.changeScene("Tela.fxml");
+    }
 
     private void clearFields() {
         textFieldMarca.clear();

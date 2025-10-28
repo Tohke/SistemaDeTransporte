@@ -10,30 +10,33 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * Falta arrumar o cadastro de operador FEITO
- * Criar uma tela inicial para escolher as operações do operador FEITO
- * erro no login de operador -> falta a tela geral do operador FEITO
- *<p>
- * Fazer o registro
- * mensagem de confirmar cadastro de operador
- *<p>
- * erro de segurança: transformar o cadastro de operador apenas possível na tela principal de um operador já logado
- * erro de logica: voltar sempre leva para a tela de login/cadastro
- *<p>
- * Motorista:
- * CNH 1234-56
- *<p>
- * Operador:
- * Nome: Joao Francisco
- * Login: joao_f
- * senha: jfps05
- *<p>
- * Carro:
- * Marca: Hyundai
- * Modelo: Creta
- * Placa: ABCD-01
- * <p>
- * */
+ <p>
+Falta criar a verificação ao inserir a placa LLL-NN
+ <p>
+
+ <p>
+ Motorista:
+ CNH 1234-56
+ <p>
+ Operador:
+ Nome: Joao Francisco
+ Login: joao_f
+ senha: jfps05
+ <p>
+ Carro:
+ Marca: Hyundai
+ Modelo: Creta
+ Placa: ABCD-01
+
+ Marca: Fiat
+ Modelo: Uno
+ Placa: ED-CBA
+
+ Marca: Honda
+ Modelo: City
+ Placa: ABC-FG
+ <p>
+ */
 
 public class App extends Application {
 

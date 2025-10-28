@@ -1,9 +1,9 @@
-package Controllers.OperatorsVersion;
+package controllers.operatorsVersion;
 
 import com.st.sistemadetransporte.App;
 import javafx.fxml.FXML;
 
-public class HelloControllerVehiclesManegement_OP {
+public class ControllerVehiclesManegement_OP {
 
     @FXML private void backOperatorsPage() {App.changeScene("TelaPrincipalOperador.fxml");}
     @FXML protected void goOperationsPage(){

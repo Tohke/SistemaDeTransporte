@@ -4,7 +4,7 @@ package modelo;
  *
  * @author Jose
  */
-public class Vehicle {
+public class    Vehicle {
 
     private String placa;
     private String marca;

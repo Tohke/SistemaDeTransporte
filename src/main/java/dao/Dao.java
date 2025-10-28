@@ -73,7 +73,6 @@ public class Dao <T> {
     public void insertData(Vehicle newData) {
         if ( newData == null){  // não existe
             //collection.insertOne(newVehicle);
-            System.out.println("nqbrenbqneb0");
         }
         else {
             System.out.println("Já existe");
@@ -85,6 +84,7 @@ public class Dao <T> {
     public T searchVehicles(Document filter){
         return collection.find(filter).first();
     }
+
     public List<T> listVehiles(Document filter) {
         ArrayList<T> allData = new ArrayList<>();
         MongoCursor<T> cursor = collection.find(filter).iterator();

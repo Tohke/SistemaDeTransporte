@@ -1,13 +1,13 @@
-package Controllers;
+package controllers.operatorsVersion;
 
 import com.st.sistemadetransporte.App;
 import dao.Dao;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import modelo.User;
-import javafx.scene.control.Alert;
 
-public class HelloControllerSignUpUser {
+public class ControllerSignUpUser_OP {
     @FXML private TextField textFieldUserName;
     @FXML private TextField textFieldUserAddress;
     @FXML private TextField textFieldUserCNH;
@@ -38,7 +38,7 @@ public class HelloControllerSignUpUser {
         }
     }
 
-    @FXML protected void backMainPage(){App.changeScene("Tela.fxml");}
+    @FXML private void backOperatorsPage() {App.changeScene("TelaPrincipalOperador.fxml");}
 
     private void clearFields() {
         textFieldUserName.clear();

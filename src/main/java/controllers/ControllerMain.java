@@ -1,4 +1,4 @@
-package Controllers;
+package controllers;
 
 import com.st.sistemadetransporte.App;
 import javafx.fxml.FXML;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class HelloControllerMain {
+public class ControllerMain {
 
 
 

@@ -1,4 +1,4 @@
-package Controllers;
+package controllers;
 
 import com.st.sistemadetransporte.App;
 import dao.Dao;
@@ -8,7 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import modelo.Operators;
 
-public class HelloControllerLoginOperator {
+public class ControllerLoginOperator {
 
     @FXML private TextField textFieldLogin;
     @FXML private PasswordField passwordFieldSenha;

@@ -1,4 +1,4 @@
-package Controllers.OperatorsVersion;
+package controllers;
 
 import com.st.sistemadetransporte.App;
 import dao.Dao;
@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 
-public class HelloControllerHistory_OP {
+public class ControllerHistory {
 
     @FXML private TextField textFieldPlaca;
     @FXML private TableView<VehicleRent> tableViewHistorico;
@@ -61,7 +61,7 @@ public class HelloControllerHistory_OP {
     }
 
 
-    @FXML private void backOperatorsPage() {App.changeScene("TelaPrincipalOperador.fxml");}
+    @FXML private void backMainPage() {App.changeScene("TelaGerenciarVeiculos.fxml");}
 
 
     private void showAlert(String title, String message) {

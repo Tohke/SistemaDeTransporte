@@ -1,4 +1,4 @@
-package Controllers;
+package controllers;
 
 import com.st.sistemadetransporte.App;
 import dao.Dao;
@@ -7,7 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import modelo.User;
 
-public class HelloControllerDriverLogin {
+public class ControllerDriverLogin {
 
     @FXML private TextField textFieldCNH;
 

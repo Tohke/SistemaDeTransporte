@@ -1,9 +1,9 @@
-package Controllers;
+package controllers;
 
 import com.st.sistemadetransporte.App;
 import javafx.fxml.FXML;
 
-public class HelloControllerOperatorsMainPage {
+public class ControllerOperatorsMainPage {
 
     @FXML private void goOperacoesVeiculos() {App.changeScene("TelaOperacoesDeVeiculos_OP.fxml");}
     @FXML private void goHistorico() {App.changeScene("TelaHistorico_OP.fxml");}

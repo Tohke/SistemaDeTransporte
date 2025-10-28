@@ -14,7 +14,6 @@ public class VehicleRent {
     // Construtor vazio (obrigatório para o DAO)
     public VehicleRent() {}
 
-    // Construtor para facilitar a criação de novos registros
     public VehicleRent(String placaVeiculo, String nomeMotorista, LocalDateTime dataRetirada) {
         this.placaVeiculo = placaVeiculo;
         this.nomeMotorista = nomeMotorista;
